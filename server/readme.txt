@@ -1,0 +1,1 @@
+This was built with react, graphql, typeorm and mysql
