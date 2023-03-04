@@ -28,7 +28,7 @@ function ListOfUsers() {
                       cache.writeQuery({
                         query: GET_USERS_ONLY,
                         data: {
-                          getAllUsers: data.getAllUsersCars.filter((user: UserInterface) => {
+                          getAllUsersCars: data.getAllUsersCars.filter((user: UserInterface) => {
                             return  user.id !== deleteUser.id;
                           }),
                         },

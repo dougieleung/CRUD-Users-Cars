@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { UserInterface } from "./interface";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -14,8 +15,8 @@ const client = new ApolloClient({
     typePolicies: {
       Query: {
         fields: {
-          getAllUsers: {
-            merge(existing = [], incoming: any[]) {
+          getAllUsersCars: {
+            merge(existing = [], incoming: UserInterface[]) {
               return [...incoming];
             },
           }
