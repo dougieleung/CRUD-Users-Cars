@@ -15,7 +15,7 @@ export const GET_USER = {
     args: {
         id: { type: GraphQLID }
       },
-      async resolve(parent: any, args: any) {
+      async resolve(parent: any, args: {id: string}) {
         const id = args.id;
         return await User.findOneBy({id: id});
       },

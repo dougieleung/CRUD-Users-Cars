@@ -2,6 +2,8 @@ import { UserType } from "../TypeDefs/User";
 import { MessageType } from "../TypeDefs/Messages";
 import { GraphQLID, GraphQLString } from "graphql";
 import { User } from "../../Entities/User";
+import { UserArgs, PasswordArgs } from "../interface";
+
 
 export const CREATE_USER = {
   type: UserType,
@@ -10,7 +12,7 @@ export const CREATE_USER = {
     username: { type: GraphQLString },
     password: { type: GraphQLString },
   },
-  async resolve(parent: any, args: any) {
+  async resolve(parent: any, args: UserArgs) {
     const { name, username, password } = args;
     await User.insert(args);
     return args;
@@ -24,7 +26,7 @@ export const UPDATE_PASSWORD = {
     oldPassword: { type: GraphQLString },
     newPassword: { type: GraphQLString },
   },
-  async resolve(parent: any, args: any) {
+  async resolve(parent: any, args: PasswordArgs) {
     const { username, oldPassword, newPassword } = args;
     const user = await User.findOneBy({ username: username });
 
@@ -51,7 +53,7 @@ export const DELETE_USER = {
   args: {
     id: { type: GraphQLID },
   },
-  async resolve(parent: any, args: any) {
+  async resolve(parent: any, args: {id: string}) {
     const id  = args.id;
 
     const user = await User.findOneBy({ id: id});

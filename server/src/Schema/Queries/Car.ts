@@ -14,7 +14,7 @@ export const GET_CARS_BELONGING_TO = {
   args: {
     userId: { type: GraphQLID },
   },
-  async resolve(parent: any, args: any) {
+  async resolve(parent: any, args: { userId: string }) {
     const userId = args.userId;
     return await Car.find({ where: [{ userId: userId }] });
   },
