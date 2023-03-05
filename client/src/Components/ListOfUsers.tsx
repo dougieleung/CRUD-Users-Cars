@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC } from "react";
 import { GET_USERS_ONLY } from "../Graphql/Queries";
 import { useQuery, useMutation } from "@apollo/client";
 import { DELETE_USER } from "../Graphql/Mutation";
@@ -47,6 +47,6 @@ const ListOfUsers: FC = () => {
         })}
     </>
   );
-}
+};
 
 export default ListOfUsers;

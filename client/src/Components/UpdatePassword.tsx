@@ -1,4 +1,4 @@
-import React, { useState, FC } from "react";
+import { useState, FC } from "react";
 import { UPDATE_PASSWORD } from "../Graphql/Mutation";
 import { useMutation } from "@apollo/client";
 
