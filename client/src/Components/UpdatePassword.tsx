@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, FC } from "react";
 import { UPDATE_PASSWORD } from "../Graphql/Mutation";
 import { useMutation } from "@apollo/client";
 
-function UpdatePassword() {
-  const [username, setUsername] = useState("");
-  const [currentPassword, setCurrentPassword] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [updateMessage, setUpdateMessage] = useState("");
+const UpdatePassword: FC = () => {
+  const [username, setUsername] = useState<string | null>(null);
+  const [currentPassword, setCurrentPassword] = useState<string | null>(null);
+  const [newPassword, setNewPassword] = useState<string | null>(null);
+  const [updateMessage, setUpdateMessage] = useState<string | null>(null);
 
   const [updatePassword] = useMutation(UPDATE_PASSWORD);
 

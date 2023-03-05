@@ -1,9 +1,10 @@
+import { FC } from 'react';
 import { GET_USERS_ONLY } from "../Graphql/Queries";
 import { useQuery, useMutation } from "@apollo/client";
 import { DELETE_USER } from "../Graphql/Mutation";
 import { UserInterface } from "../interface";
 
-function ListOfUsers() {
+const ListOfUsers: FC = () => {
   const { data } = useQuery(GET_USERS_ONLY);
 
   const [deleteUser] = useMutation(DELETE_USER);
@@ -28,9 +29,11 @@ function ListOfUsers() {
                       cache.writeQuery({
                         query: GET_USERS_ONLY,
                         data: {
-                          getAllUsersCars: data.getAllUsersCars.filter((user: UserInterface) => {
-                            return  user.id !== deleteUser.id;
-                          }),
+                          getAllUsersCars: data.getAllUsersCars.filter(
+                            (user: UserInterface) => {
+                              return user.id !== deleteUser.id;
+                            }
+                          ),
                         },
                       });
                     },

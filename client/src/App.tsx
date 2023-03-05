@@ -1,10 +1,11 @@
+import { FC } from 'react';
 import "./App.css";
 import CreateUser from "./Components/CreateUser";
 import ListOfUsers from "./Components/ListOfUsers";
 import UpdatePassword from "./Components/UpdatePassword";
 
 
-function App() {
+const App: FC = () => {
   
   return (
    <>
